@@ -18,9 +18,9 @@ var app = builder.Build();
 
 
 // Define prediction route & handler
-//app.MapPost("/predict",
-//    async (PredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput> predictionEnginePool, MLModel.ModelInput input) =>
-//        await Task.FromResult(predictionEnginePool.Predict(input)));
+app.MapPost("/predict",
+    async (PredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput> predictionEnginePool, MLModel.ModelInput input) =>
+        await Task.FromResult(predictionEnginePool.Predict(input)));
 
 app.MapGet("/", () => "Hello World!");
 
