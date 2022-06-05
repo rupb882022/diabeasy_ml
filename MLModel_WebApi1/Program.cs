@@ -15,7 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
-
+app.UseCors("AllowAll");
 
 // Define prediction route & handler
 app.MapPost("/predict",
