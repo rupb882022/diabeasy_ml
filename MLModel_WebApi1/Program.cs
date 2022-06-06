@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddPredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput>()
     .FromFile("MLModel.zip");
 builder.Services.AddEndpointsApiExplorer();
-
+builder.Services.AddCors();
 var app = builder.Build();
 
 //app.UseCors("AllowAll");
