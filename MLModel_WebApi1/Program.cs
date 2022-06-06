@@ -12,11 +12,19 @@ builder.Services.AddPredictionEnginePool<MLModel.ModelInput, MLModel.ModelOutput
     .FromFile("MLModel.zip");
 builder.Services.AddEndpointsApiExplorer();
 
-
 var app = builder.Build();
 
 //app.UseCors("AllowAll");
 //app.UseCors("*");
+
+// Shows UseCors with CorsPolicyBuilder.
+app.UseCors(builder =>
+{
+    builder
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader();
+});
 
 // Define prediction route & handler
 app.MapPost("/predict",
